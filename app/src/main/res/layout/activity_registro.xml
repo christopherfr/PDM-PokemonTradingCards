@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="pe.com.chfernandezrios.pokemontradingcards.RegistroActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_textview_titulo_registro"
+        android:textAlignment="center"
+        android:textSize="45sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/eteUsuarioRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_edittext_usuario_registro" />
+
+        <EditText
+            android:id="@+id/etePasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eteUsuarioRegistro"
+            android:fontFamily="sans-serif"
+            android:hint="@string/hint_edittext_password_registro"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/eteRpasswordRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etePasswordRegistro"
+            android:fontFamily="sans-serif"
+            android:hint="@string/hint_edittext_rpassword_registro"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/butGuardarRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eteRpasswordRegistro"
+            android:text="@string/text_button_guardar_registro" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Pokemon Trading Cards</string>
+    <string name="Pokemon">Pokemon</string>
+    <string name="TradingCards">Trading cards</string>
+    <string name="hint_edittext_username">Ingrese usuario</string>
+    <string name="hint_edittext_password">Password</string>
+    <string name="hint_edittext_rpassword">Ingrese usuario</string>
+    <string name="text_button_login_login">login</string>
+    <string name="text_button_registro_login">registro</string>
+    <string name="text_textview_titulo_registro">Registro</string>
+    <string name="text_button_guardar_registro">guardar</string>
+    <string name="text_button_mispokemones">Mis Pokemones</string>
+    <string name="text_button_pokemonesdisponibles">Pokemones disponibles</string>
+    <string name="text_button_menu_mispokemones">menú</string>
+    <string name="text_textview_descripcion_mispokemones">Este es un párrafo de prueba que describe información importante del pokemón</string>
+    <string name="text_textview_tiporespuesta_mispokemones">Tipo Pokemon</string>
+    <string name="text_textview_tipo_mispokemones">Tipo:</string>
+    <string name="text_textview_nivelrespuesta_mispokemones">Nivel Pokemon</string>
+    <string name="text_textview_nivel_mispokemones">Nivel:</string>
+    <string name="text_textview_nombre_mispokemones">Nombre Pokemon</string>
+    <string name="text_button_anterior_mispokemones"><![CDATA[<<]]></string>
+    <string name="text_button_siguiente_mispokemones"><![CDATA[>>]]></string>
+    <string name="hint_edittext_usuario_registro">Ingrese usuario</string>
+    <string name="hint_edittext_password_registro">Ingrese password</string>
+    <string name="hint_edittext_rpassword_registro">Reingrese password</string>
+</resources>
