@@ -12,8 +12,11 @@ import java.io.IOException;
 
 import pe.com.chfernandezrios.pokemontradingcards.beans.Usuario;
 import pe.com.chfernandezrios.pokemontradingcards.beans.responses.LoginResponse;
+import pe.com.chfernandezrios.pokemontradingcards.beans.responses.RegistroRequest;
 import pe.com.chfernandezrios.pokemontradingcards.beans.responses.StatusResponse;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegistroActivity extends AppCompatActivity {
     EditText eteUsuario;
@@ -41,6 +44,10 @@ public class RegistroActivity extends AppCompatActivity {
         String username = loginIntent.getStringExtra("USERNAME");
         String password = loginIntent.getStringExtra("PASSWORD");
 
+        // Llenar los EditText con los campos llenados en el Login
+        eteUsuario.setText(username);
+        etePassword.setText(password);
+
         // Cuando se haga click en el botón Guardar
         butGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,29 +59,36 @@ public class RegistroActivity extends AppCompatActivity {
                         // Si las contraseñas coinciden
                         if (etePassword.getText().toString().equals(eteRPassword.getText().toString())) {
                             // Realizar registro
-                            Usuario usuario =
+                            RegistroRequest registroRequest = new RegistroRequest(
                                     new Usuario(
                                             eteUsuario.getText().toString(),
                                             etePassword.getText().toString()
-                                    );
-                            Call<StatusResponse> statusResponseCall = client.registro(usuario);
+                                    )
+                            );
 
-                            try {
-                                StatusResponse statusResponse = statusResponseCall.execute().body();
+                            client.registro(registroRequest).enqueue(new Callback<StatusResponse>() {
+                                @Override
+                                public void onResponse(Call<StatusResponse> call, Response<StatusResponse> response) {
+                                    StatusResponse statusResponse = response.body();
+                                    // Si el StatusResponse no muestra errores
+                                    if (statusResponse.getCode() == 0 && statusResponse.getMsg() == null) {
+                                        // Realizar pase al Login
+                                        Intent intent = new Intent();
+                                        intent.setClass(RegistroActivity.this, LoginActivity.class);
+                                        startActivity(intent);
+                                        Toast.makeText(getBaseContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getBaseContext(), "Error en el registro", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
 
-                                // Si el StatusResponse no tiene code igual a 0 o su msg es igual a caracter vacio
-                                if (!(statusResponse.getCode() == 0 && statusResponse.getMsg().equals(""))) {
-                                    // Realizar pase al Login
-                                    Intent intent = new Intent();
-                                    intent.setClass(RegistroActivity.this, LoginResponse.class);
-                                    startActivity(intent);
-                                    Toast.makeText(getBaseContext(), "Registro correcto", Toast.LENGTH_SHORT).show();
-                                } else {
+                                @Override
+                                public void onFailure(Call<StatusResponse> call, Throwable t) {
                                     Toast.makeText(getBaseContext(), "Error en el registro", Toast.LENGTH_SHORT).show();
                                 }
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            });
+                        } else /* Si las contraseñas no coinciden */ {
+                            Toast.makeText(getBaseContext(), "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }.start();

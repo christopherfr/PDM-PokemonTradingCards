@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import pe.com.chfernandezrios.pokemontradingcards.beans.Usuario;
+import pe.com.chfernandezrios.pokemontradingcards.beans.responses.LoginRequest;
 import pe.com.chfernandezrios.pokemontradingcards.beans.responses.LoginResponse;
 import retrofit2.Call;
 
@@ -39,12 +40,12 @@ public class LoginActivity extends AppCompatActivity {
                 new Thread() {
                     @Override
                     public void run() {
+                        LoginRequest loginRequest = new LoginRequest(
+                                eteUsuario.getText().toString(),
+                                etePassword.getText().toString()
+                        );
                         // Realizar la validación de credenciales ingresadas (Log In)
-                        Call<LoginResponse> loginResponseCall =
-                                client.logIn(
-                                        eteUsuario.getText().toString(),
-                                        etePassword.getText().toString()
-                                );
+                        Call<LoginResponse> loginResponseCall = client.logIn(loginRequest);
 
                         try {
                             LoginResponse loginResponse = loginResponseCall.execute().body();

@@ -5,12 +5,11 @@ package pe.com.chfernandezrios.pokemontradingcards.beans;
  */
 public class Usuario {
     private int id;
-    private String user;
     private String username;
     private String password;
 
-    public Usuario(String user, String password) {
-        this.user = user;
+    public Usuario(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
@@ -20,14 +19,6 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public String getUsername() {
