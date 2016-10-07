@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="pe.com.chfernandezrios.pokemontradingcards.MispokemonesActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="11"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iviPokemon"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tviNombrePokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_textview_nombre_mispokemones"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_textview_nivel_mispokemones"
+                android:textAlignment="textStart"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tviNivelPokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_textview_nivelrespuesta_mispokemones"
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_textview_tipo_mispokemones"
+                android:textAlignment="textStart"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tviTipoPokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_textview_tiporespuesta_mispokemones"
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tviDescripcionPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4sp"
+        android:layout_weight="6"
+        android:text="@string/text_textview_descripcion_mispokemones"
+        android:textAlignment="textStart"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4">
+
+        <Button
+            android:id="@+id/butAnterior"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:text="@string/text_button_anterior_mispokemones"
+            android:textSize="34sp" />
+
+        <Button
+            android:id="@+id/butMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:text="@string/text_button_menu_mispokemones"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/butSiguiente"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:text="@string/text_button_siguiente_mispokemones"
+            android:textSize="34sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
